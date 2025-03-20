@@ -1,0 +1,438 @@
+<ImageNetStructure>
+    <releaseData>fall2011</releaseData>
+    <synset wnid="fall11" words="ImageNet 2011 Fall Release" gloss="ImageNet 2011 Fall Release.">
+        <synset wnid="n09287968" words="geological formation, formation"
+            gloss="(geology) the geological features of the earth">
+            <synset wnid="n09201998" words="aquifer"
+                gloss="underground bed or layer yielding ground water for wells and springs etc"> </synset>
+            <synset wnid="n09217230" words="beach"
+                gloss="an area of sand sloping down to the water of a sea or lake">
+                <synset wnid="n09393524" words="plage" gloss="the beach at a seaside resort"> </synset>
+            </synset>
+            <synset wnid="n09238926" words="cave"
+                gloss="a geological formation consisting of an underground enclosure with access from the surface of the ground or from the sea">
+                <synset wnid="n09239302" words="cavern"
+                    gloss="a large cave or a large chamber in a cave"> </synset>
+                <synset wnid="n09257843" words="cove"
+                    gloss="small or narrow cave in the side of a cliff or mountain"> </synset>
+                <synset wnid="n09294877" words="grotto, grot"
+                    gloss="a small cave (usually with attractive features)"> </synset>
+            </synset>
+            <synset wnid="n09246464" words="cliff, drop, drop-off"
+                gloss='a steep high face of rock; "he stood on a high cliff overlooking the town"; "a steep drop"'>
+                <synset wnid="n09259025" words="crag" gloss="a steep rugged rock or cliff"> </synset>
+                <synset wnid="n09398677" words="precipice" gloss="a very steep cliff"> </synset>
+            </synset>
+            <synset wnid="n09264803" words="delta"
+                gloss='a low triangular area of alluvial deposits where a river divides before entering a larger body of water; "the Mississippi River delta"; "the Nile delta"'>
+</synset>
+            <synset wnid="n09266604" words="diapir"
+                gloss="a domed rock formation where a core of rock has moved upward and pierced through the more brittle overlying strata">
+</synset>
+            <synset wnid="n09283066" words="folium"
+                gloss="a thin layer or stratum of (especially metamorphic) rock"> </synset>
+            <synset wnid="n09283866" words="foreshore"
+                gloss="the part of the seashore between the highwater mark and the low-water mark"> </synset>
+            <synset wnid="n09309292" words="ice mass" gloss="a large mass of ice">
+                <synset wnid="n09289331" words="glacier" gloss="a slowly moving mass of ice">
+                    <synset wnid="n09194227" words="Alpine glacier, Alpine type of glacier"
+                        gloss="a glacier that moves down from a high valley"> </synset>
+                    <synset wnid="n09255070" words="continental glacier"
+                        gloss="a glacier that spreads out from a central mass of ice">
+                        <synset wnid="n09396608" words="polar glacier"
+                            gloss="a glacier near the Arctic or Antarctic poles"> </synset>
+                    </synset>
+                    <synset wnid="n09391774" words="Piedmont glacier, Piedmont type of glacier"
+                        gloss="a type of glaciation characteristic of Alaska; large valley glaciers meet to form an almost stagnant sheet of ice">
+</synset>
+                </synset>
+                <synset wnid="n09308572" words="iceberg, berg"
+                    gloss="a large mass of ice floating at sea; usually broken off of a polar glacier">
+                    <synset wnid="n09295210" words="growler"
+                        gloss="a small iceberg or ice floe just large enough to be hazardous for shipping">
+</synset>
+                </synset>
+                <synset wnid="n09308743" words="icecap, ice cap"
+                    gloss="a mass of ice and snow that permanently covers a large area of land (e.g., the polar regions or a mountain peak)">
+</synset>
+                <synset wnid="n09309046" words="ice field"
+                    gloss="a large flat mass of ice (larger than an ice floe) floating at sea"> </synset>
+                <synset wnid="n09309168" words="ice floe, floe"
+                    gloss="a flat mass of ice (smaller than an ice field) floating at sea"> </synset>
+            </synset>
+            <synset wnid="n09331251" words="lakefront" gloss="land bordering a lake"> </synset>
+            <synset wnid="n09348460" words="massif"
+                gloss="a block of the earth's crust bounded by faults and shifted to form peaks of a mountain range">
+</synset>
+            <synset wnid="n09357447" words="monocline"
+                gloss="a geological formation in which all strata are inclined in the same direction">
+</synset>
+            <synset wnid="n09362316" words="mouth"
+                gloss='the point where a stream issues into a larger body of water; "New York is at the mouth of the Hudson"'>
+</synset>
+            <synset wnid="n09366017" words="natural depression, depression"
+                gloss="a sunken or depressed geological formation">
+                <synset wnid="n09215437" words="basin"
+                    gloss='a natural depression in the surface of the land often with a lake at the bottom of it; "the basin of the Great Salt Lake"'>
+                    <synset wnid="n09245515" words="cirque, corrie, cwm"
+                        gloss="a steep-walled semicircular basin in a mountain; may contain a lake"> </synset>
+                    <synset wnid="n09421031" words="saltpan"
+                        gloss="a shallow basin in a desert region; contains salt and gypsum that was deposited by an evaporated salt lake">
+</synset>
+                    <synset wnid="n09457979" words="tidal basin"
+                        gloss="a basin that is full of water at high tide"> </synset>
+                </synset>
+                <synset wnid="n09217638" words="bed, bottom"
+                    gloss='a depression forming the ground under a body of water; "he searched for treasure on the ocean bed"'>
+                    <synset wnid="n09330378" words="lake bed, lake bottom"
+                        gloss="the bottom of a lake"> </synset>
+                    <synset wnid="n09376526"
+                        words="ocean floor, sea floor, ocean bottom, seabed, sea bottom, Davy Jones's locker, Davy Jones"
+                        gloss="the bottom of a sea or ocean">
+                        <synset wnid="n09186592" words="abyssal zone"
+                            gloss="the deep sea (2000 meters or more) where there is no light"> </synset>
+                        <synset wnid="n09255207" words="continental shelf"
+                            gloss="the relatively shallow (up to 200 meters) seabed surrounding a continent">
+</synset>
+                        <synset wnid="n09255343"
+                            words="continental slope, bathyal zone, bathyal district"
+                            gloss="the steep descent of the seabed from the continental shelf to the abyssal zone">
+</synset>
+                        <synset wnid="n09369039" words="neritic zone"
+                            gloss="the ocean waters from the low tide mark to a depth of about 100 fathoms">
+</synset>
+                        <synset wnid="n09464221" words="twilight zone"
+                            gloss="the lowest level of the ocean to which light can reach"> </synset>
+                    </synset>
+                    <synset wnid="n09415671" words="riverbed, river bottom"
+                        gloss="a channel occupied (or formerly occupied) by a river"> </synset>
+                    <synset wnid="n09448690" words="streambed, creek bed"
+                        gloss="a channel occupied (or formerly occupied) by a stream">
+                        <synset wnid="n09474895" words="wash, dry wash"
+                            gloss="the dry bed of an intermittent stream (as at the bottom of a canyon)">
+</synset>
+                    </synset>
+                </synset>
+                <synset wnid="n09259219" words="crater"
+                    gloss="a bowl-shaped depression formed by the impact of a meteorite or bomb">
+                    <synset wnid="n09249155" words="collector"
+                        gloss="a crater that has collected cosmic material hitting the earth"> </synset>
+                    <synset wnid="n09344324" words="lunar crater"
+                        gloss="a crater on the Earth's Moon"> </synset>
+                </synset>
+                <synset wnid="n09304750" words="hole, hollow"
+                    gloss="a depression hollowed out of solid matter">
+                    <synset wnid="n09230041" words="burrow, tunnel"
+                        gloss="a hole made by an animal, usually for shelter">
+                        <synset wnid="n09474765" words="warren, rabbit warren"
+                            gloss="a series of connected underground tunnels occupied by rabbits"> </synset>
+                    </synset>
+                    <synset wnid="n09290350" words="gopher hole"
+                        gloss="a hole in the ground made by gophers"> </synset>
+                    <synset wnid="n09325038" words="kettle hole, kettle"
+                        gloss="(geology) a hollow (typically filled by a lake) that results from the melting of a mass of ice trapped in glacial deposits">
+</synset>
+                    <synset wnid="n09393108" words="pit, cavity"
+                        gloss='a sizeable hole (usually in the ground); "they dug a pit to bury the body"'>
+                        <synset wnid="n04488295" words="trou-de-loup"
+                            gloss="a sloping pit with a stake in the middle used as an obstacle to the enemy">
+</synset>
+                        <synset wnid="n09214269" words="barbecue pit"
+                            gloss="a pit where wood or charcoal is burned to make a bed of hot coals suitable for barbecuing meat">
+</synset>
+                        <synset wnid="n09226869" words="borrow pit"
+                            gloss="a pit created to provide earth that can be used as fill at another site">
+</synset>
+                        <synset wnid="n09268007" words="divot"
+                            gloss='(golf) the cavity left when a piece of turf is cut from the ground by the club head in making a stroke; "it was a good drive but the ball ended up in a divot"'>
+</synset>
+                        <synset wnid="n09280113" words="fire pit"
+                            gloss='a pit whose floor is incandescent lava; "the fire pit of the crater"'>
+</synset>
+                        <synset wnid="n09402944" words="quicksand"
+                            gloss="a pit filled with loose wet sand into which objects are sucked down">
+</synset>
+                        <synset wnid="n09422190" words="sandpit"
+                            gloss="a large pit in sandy ground from which sand is dug"> </synset>
+                        <synset wnid="n09425019" words="sawpit"
+                            gloss="a pit over which lumber is positioned to be sawed by two men with a long two-handed saw">
+</synset>
+                        <synset wnid="n09454744" words="tar pit"
+                            gloss="a natural accumulation of bitumens at the surface of the earth; often acts as a trap for animals whose bones are thus preserved">
+</synset>
+                    </synset>
+                    <synset wnid="n09398076" words="pothole, chuckhole"
+                        gloss="a pit or hole produced by wear or weathering (especially in a road surface)">
+</synset>
+                    <synset wnid="n09403086" words="rabbit burrow, rabbit hole"
+                        gloss="a hole in the ground as a nest made by wild rabbits"> </synset>
+                    <synset wnid="n09481036" words="wormhole" gloss="hole made by a burrowing worm"> </synset>
+                </synset>
+                <synset wnid="n09344198" words="lowland" gloss="low level country">
+                    <synset wnid="n09335809" words="landfill"
+                        gloss="a low area that has been filled in">
+                        <synset wnid="n09422631" words="sanitary landfill"
+                            gloss="a low area where waste is buried between layers of earth"> </synset>
+                    </synset>
+                </synset>
+                <synset wnid="n09435739" words="sinkhole, sink, swallow hole"
+                    gloss="a depression in the ground communicating with a subterranean passage (especially in limestone) and formed by solution or by collapse of a cavern roof">
+</synset>
+                <synset wnid="n09461315" words="trench, deep, oceanic abyss"
+                    gloss="a long steep-sided depression in the ocean floor"> </synset>
+                <synset wnid="n09462773" words="trough"
+                    gloss="a narrow depression (as in the earth or between ocean waves or in the ocean bed)">
+                    <synset wnid="n09452291" words="swale"
+                        gloss="a low area (especially a marshy area between ridges)"> </synset>
+                </synset>
+                <synset wnid="n09468604" words="valley, vale"
+                    gloss="a long depression in the surface of the land that usually contains a river">
+                    <synset wnid="n09262690" words="dale"
+                        gloss="an open river valley (in a hilly area)"> </synset>
+                    <synset wnid="n09289596" words="glen"
+                        gloss="a narrow secluded valley (in the mountains)"> </synset>
+                    <synset wnid="n09300306" words="gully"
+                        gloss="deep ditch cut by running water (especially after a prolonged downpour)">
+                        <synset wnid="n09206896" words="arroyo" gloss="a stream or brook"> </synset>
+                        <synset wnid="n09269882" words="draw"
+                            gloss="a gully that is shallower than a ravine"> </synset>
+                        <synset wnid="n09474010" words="wadi"
+                            gloss="gully or streambed in northern Africa and the Middle East that remains dry except during rainy season">
+</synset>
+                    </synset>
+                    <synset wnid="n09305031" words="hollow, holler"
+                        gloss='a small valley between mountains; "he built himself a cabin in a hollow high up in the Appalachians"'>
+                        <synset wnid="n09264599" words="dell, dingle" gloss="a small wooded hollow"> </synset>
+                    </synset>
+                    <synset wnid="n09375606" words="nullah"
+                        gloss="a ravine or gully in southern Asia"> </synset>
+                    <synset wnid="n09405787" words="ravine"
+                        gloss="a deep narrow steep-sided valley (especially one formed by running water)">
+                        <synset wnid="n09290444" words="gorge"
+                            gloss="a deep ravine (usually with a river running through it)">
+                            <synset wnid="n09295946" words="gulch, flume"
+                                gloss="a narrow gorge with a stream running through it"> </synset>
+                        </synset>
+                        <synset wnid="n09233446" words="canyon, canon"
+                            gloss="a ravine formed by a river in an area with little rainfall"> </synset>
+                    </synset>
+                    <synset wnid="n09410224" words="rift valley"
+                        gloss="a valley with steep sides; formed by a rift in the earth's crust"> </synset>
+                </synset>
+            </synset>
+            <synset wnid="n09366317" words="natural elevation, elevation"
+                gloss="a raised or elevated geological formation">
+                <synset wnid="n09302616" words="highland, upland"
+                    gloss="elevated (e.g., mountainous) land">
+                    <synset wnid="n09269341" words="down"
+                        gloss="(usually plural) a rolling treeless highland with little soil"> </synset>
+                    <synset wnid="n09453008" words="tableland, plateau"
+                        gloss="a relatively flat highland">
+                        <synset wnid="n09351905" words="mesa, table"
+                            gloss='flat tableland with steep edges; "the tribe was relatively safe on the mesa but they had to descend into the valley for water"'>
+</synset>
+                        <synset wnid="n09456207" words="terrace, bench"
+                            gloss="a level shelf of land interrupting a declivity (with steep slopes above and below)">
+</synset>
+                    </synset>
+                </synset>
+                <synset wnid="n09303008" words="hill"
+                    gloss='a local and well-defined elevation of the land; "they loved to roam the hills of West Virginia"'>
+                    <synset wnid="n09230202" words="butte"
+                        gloss="a hill that rises abruptly from the surrounding region; has a flat top and sloping sides">
+</synset>
+                    <synset wnid="n09283405" words="foothill"
+                        gloss="a relatively low hill on the lower slope of a mountain"> </synset>
+                    <synset wnid="n09326662" words="knoll, mound, hillock, hummock, hammock"
+                        gloss="a small natural hill">
+                        <synset wnid="n09199101" words="anthill, formicary"
+                            gloss="a mound of earth made by ants as they dig their nest"> </synset>
+                        <synset wnid="n09327077" words="kopje, koppie"
+                            gloss="a small hill rising up from the African veld"> </synset>
+                        <synset wnid="n09357346" words="molehill"
+                            gloss="a mound of earth made by moles while burrowing"> </synset>
+                    </synset>
+                    <synset wnid="n09459979" words="tor" gloss="a high rocky hill"> </synset>
+                </synset>
+                <synset wnid="n09359803" words="mountain, mount"
+                    gloss="a land mass that projects well above its surroundings; higher than a hill">
+                    <synset wnid="n09193705" words="alp" gloss="any high mountain"> </synset>
+                    <synset wnid="n09218641" words="ben"
+                        gloss='a mountain or tall hill; "they were climbing the ben"'> </synset>
+                    <synset wnid="n09427752" words="seamount"
+                        gloss="an underwater mountain rising above the ocean floor">
+                        <synset wnid="n09300559" words="guyot"
+                            gloss="a seamount of volcanic origin (especially in the Pacific Ocean)"> </synset>
+                    </synset>
+                    <synset wnid="n09472597" words="volcano"
+                        gloss="a mountain formed by volcanic material"> </synset>
+                </synset>
+                <synset wnid="n09399592" words="promontory, headland, head, foreland"
+                    gloss="a natural elevation (especially a rocky one that juts out into the sea)">
+                    <synset wnid="n09362945" words="mull"
+                        gloss='a term used in Scottish names of promontories; "the Mull of Kintyre"'>
+</synset>
+                    <synset wnid="n09396465" words="point"
+                        gloss='a promontory extending out into a large body of water; "they sailed south around the point"'>
+</synset>
+                </synset>
+                <synset wnid="n09409512" words="ridge"
+                    gloss="a long narrow natural elevation or striation">
+                    <synset wnid="n09213434" words="bank"
+                        gloss='a long ridge or pile; "a huge bank of earth"'>
+                        <synset wnid="n09224725" words="bluff"
+                            gloss="a high steep bank (usually formed by river erosion)"> </synset>
+                        <synset wnid="n09421799" words="sandbank"
+                            gloss="a submerged bank of sand near a shore or in a river; can be exposed at low tide">
+                            <synset wnid="n09433312" words="shoal"
+                                gloss="a sandbank in a stretch of water that is visible at low tide">
+</synset>
+                        </synset>
+                    </synset>
+                    <synset wnid="n09214060" words="bar"
+                        gloss='a submerged (or partly submerged) ridge in a river or along a shore; "the boat ran aground on a submerged bar in the river"'>
+                        <synset wnid="n09421951" words="sandbar, sand bar" gloss="a bar of sand"> </synset>
+                    </synset>
+                    <synset wnid="n09270735" words="dune, sand dune"
+                        gloss="a ridge of sand created by the wind; found in deserts or near lakes and oceans">
+                        <synset wnid="n09429630" words="seif dune"
+                            gloss="a long and tall sand dune with a sharp crest; common in the Sahara">
+</synset>
+                    </synset>
+                    <synset wnid="n09274305" words="esker"
+                        gloss="(geology) a long winding ridge of post glacial gravel and other sediment; deposited by meltwater from glaciers or ice sheets">
+</synset>
+                    <synset wnid="n09337253" words="ledge, shelf"
+                        gloss="a projecting ridge on a mountain or submerged under water">
+                        <synset wnid="n09219233" words="berm"
+                            gloss="a narrow ledge or shelf typically at the top or bottom of a slope">
+</synset>
+                    </synset>
+                    <synset wnid="n09406793" words="reef"
+                        gloss="a submerged ridge of rock or coral near the surface of the water">
+                        <synset wnid="n09256479" words="coral reef"
+                            gloss="a reef consisting of coral consolidated into limestone">
+                            <synset wnid="n09210862" words="atoll"
+                                gloss="an island consisting of a circular coral reef surrounding a lagoon">
+</synset>
+                            <synset wnid="n09214916" words="barrier reef"
+                                gloss="a long coral reef near and parallel to the shore"> </synset>
+                            <synset wnid="n09325395" words="key, cay, Florida key"
+                                gloss="a coral reef off the southern coast of Florida"> </synset>
+                        </synset>
+                    </synset>
+                    <synset wnid="n09411295" words="ripple mark"
+                        gloss="one of a series of small ridges produced in sand by water currents or by wind">
+</synset>
+                </synset>
+                <synset wnid="n09452760" words="swell"
+                    gloss="a rounded elevation (especially one on an ocean floor)"> </synset>
+            </synset>
+            <synset wnid="n09376786" words="oceanfront" gloss="land bordering an ocean"> </synset>
+            <synset wnid="n09403734"
+                words="range, mountain range, range of mountains, chain, mountain chain, chain of mountains"
+                gloss='a series of hills or mountains; "the valley was between two ranges of hills"; "the plains lay just beyond the mountain range"'>
+</synset>
+            <synset wnid="n09407194" words="relict"
+                gloss="geological feature that is a remnant of a pre-existing formation after other parts have disappeared">
+</synset>
+            <synset wnid="n09409752" words="ridge, ridgeline" gloss="a long narrow range of hills">
+                <synset wnid="n09304376" words="hogback, horseback" gloss="a narrow ridge of hills"> </synset>
+                <synset wnid="n09205509" words="arete"
+                    gloss="a sharp narrow ridge found in rugged mountains"> </synset>
+            </synset>
+            <synset wnid="n09409898" words="ridge"
+                gloss="a long narrow natural elevation on the floor of the ocean"> </synset>
+            <synset wnid="n09433442" words="shore"
+                gloss="the land along the edge of a body of water">
+                <synset wnid="n09332890" words="lakeside, lakeshore" gloss="the shore of a lake"> </synset>
+                <synset wnid="n09428293" words="seashore, coast, seacoast, sea-coast"
+                    gloss="the shore of a sea or ocean">
+                    <synset wnid="n08596076" words="littoral, litoral, littoral zone, sands"
+                        gloss="the region of the shore of a lake or sea or ocean"> </synset>
+                    <synset wnid="n09335693" words="landfall"
+                        gloss="the seacoast first sighted on a voyage (or flight over water)"> </synset>
+                    <synset wnid="n09428628" words="seaside, seaboard"
+                        gloss="the shore of a sea or ocean regarded as a resort"> </synset>
+                    <synset wnid="n09458269" words="tideland"
+                        gloss="land near the sea that is overflowed by the tide"> </synset>
+                </synset>
+                <synset wnid="n09447666" words="strand"
+                    gloss="a poetic term for a shore (as the area periodically covered and uncovered by the tides)">
+</synset>
+            </synset>
+            <synset wnid="n09437454" words="slope, incline, side"
+                gloss='an elevated geological formation; "he climbed the steep slope"; "the house was built on the side of a mountain"'>
+                <synset wnid="n09206985" words="ascent, acclivity, rise, raise, climb, upgrade"
+                    gloss="an upward slope or grade (as in a road); &quot;the car couldn't make it up the rise&quot;">
+                    <synset wnid="n09466678" words="uphill" gloss="the upward slope of a hill"> </synset>
+                </synset>
+                <synset wnid="n09213565" words="bank"
+                    gloss='sloping land (especially the slope beside a body of water); "they pulled the canoe up on the bank"; "he sat on the bank of the river and watched the currents"'>
+                    <synset wnid="n09475925" words="waterside"
+                        gloss="land bordering a body of water"> </synset>
+                    <synset wnid="n09415584" words="riverbank, riverside"
+                        gloss="the bank of a river"> </synset>
+                </synset>
+                <synset wnid="n09213828" words="bank, cant, camber"
+                    gloss="a slope in the turn of a road or track; the outside is higher than the inside in order to reduce the effects of centrifugal force">
+</synset>
+                <synset wnid="n09233603" words="canyonside"
+                    gloss="the steeply sloping side of a canyon"> </synset>
+                <synset wnid="n09248153" words="coast"
+                    gloss='a slope down which sleds may coast; "when it snowed they made a coast on the golf course"'>
+</synset>
+                <synset wnid="n09265620"
+                    words="descent, declivity, fall, decline, declination, declension, downslope"
+                    gloss="a downward slope or bend">
+                    <synset wnid="n09269472" words="downhill" gloss="the downward slope of a hill"> </synset>
+                    <synset wnid="n09445008" words="steep" gloss="a steep place (as on a hill)"> </synset>
+                </synset>
+                <synset wnid="n09274152" words="escarpment, scarp"
+                    gloss="a long steep slope or cliff at the edge of a plateau or ridge; usually formed by erosion">
+</synset>
+                <synset wnid="n09303528" words="hillside" gloss="the side or slope of a hill">
+                    <synset wnid="n09228055" words="brae" gloss="a slope or hillside"> </synset>
+                </synset>
+                <synset wnid="n09361517" words="mountainside, versant"
+                    gloss='the side or slope of a mountain; "conifer forests cover the eastern versant"'>
+</synset>
+                <synset wnid="n09391644" words="piedmont"
+                    gloss="a gentle slope leading from the base of a mountain to a region of flat land">
+</synset>
+                <synset wnid="n09436444" words="ski slope" gloss="a snow-covered slope for skiing"> </synset>
+            </synset>
+            <synset wnid="n09443453" words="spring, fountain, outflow, outpouring, natural spring"
+                gloss="a natural flow of ground water">
+                <synset wnid="n09284917" words="Fountain of Youth"
+                    gloss='a fountain described in folk tales as able to make people young again; "Ponce de Leon discovered Florida while searching for the Fountain of Youth"'>
+</synset>
+                <synset wnid="n09288635" words="geyser"
+                    gloss="a spring that discharges hot water and steam"> </synset>
+                <synset wnid="n09305898" words="hot spring, thermal spring"
+                    gloss="a natural spring of water at a temperature of 70 F or above"> </synset>
+            </synset>
+            <synset wnid="n09454153" words="talus, scree"
+                gloss="a sloping mass of loose rocks at the base of a cliff"> </synset>
+            <synset wnid="n09470222" words="vein, mineral vein"
+                gloss="a layer of ore between layers of rock">
+                <synset wnid="n09226498" words="bonanza"
+                    gloss="an especially rich vein of precious ore"> </synset>
+            </synset>
+            <synset wnid="n09472413" words="volcanic crater, crater"
+                gloss="a bowl-shaped geological formation at the top of a volcano">
+                <synset wnid="n09344724" words="maar"
+                    gloss="a flat-bottomed volcanic crater that was formed by an explosion; often filled with water">
+</synset>
+                <synset wnid="n09231117" words="caldera"
+                    gloss="a large crater caused by the violent explosion of a volcano that collapses into a depression">
+</synset>
+            </synset>
+            <synset wnid="n09474412" words="wall"
+                gloss="a vertical (or almost vertical) smooth rock face (as of a cave or mountain)"> </synset>
+            <synset wnid="n09476123" words="water table, water level, groundwater level"
+                gloss='underground surface below which the ground is wholly saturated with water; "spring rains had raised the water table"'>
+</synset>
+        </synset>
+    </synset>
+</ImageNetStructure>

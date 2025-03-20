@@ -1,0 +1,35 @@
+<ImageNetStructure>
+    <releaseData>fall2011</releaseData>
+    <synset wnid="fall11" words="ImageNet 2011 Fall Release" gloss="ImageNet 2011 Fall Release.">
+        <synset wnid="n09287968" words="geological formation, formation"
+            gloss="(geology) the geological features of the earth">
+            <synset wnid="n09309292" words="ice mass" gloss="a large mass of ice">
+                <synset wnid="n09289331" words="glacier" gloss="a slowly moving mass of ice">
+                    <synset wnid="n09194227" words="Alpine glacier, Alpine type of glacier"
+                        gloss="a glacier that moves down from a high valley"> </synset>
+                    <synset wnid="n09255070" words="continental glacier"
+                        gloss="a glacier that spreads out from a central mass of ice">
+                        <synset wnid="n09396608" words="polar glacier"
+                            gloss="a glacier near the Arctic or Antarctic poles"> </synset>
+                    </synset>
+                    <synset wnid="n09391774" words="Piedmont glacier, Piedmont type of glacier"
+                        gloss="a type of glaciation characteristic of Alaska; large valley glaciers meet to form an almost stagnant sheet of ice">
+</synset>
+                </synset>
+                <synset wnid="n09308572" words="iceberg, berg"
+                    gloss="a large mass of ice floating at sea; usually broken off of a polar glacier">
+                    <synset wnid="n09295210" words="growler"
+                        gloss="a small iceberg or ice floe just large enough to be hazardous for shipping">
+</synset>
+                </synset>
+                <synset wnid="n09308743" words="icecap, ice cap"
+                    gloss="a mass of ice and snow that permanently covers a large area of land (e.g., the polar regions or a mountain peak)">
+</synset>
+                <synset wnid="n09309046" words="ice field"
+                    gloss="a large flat mass of ice (larger than an ice floe) floating at sea"> </synset>
+                <synset wnid="n09309168" words="ice floe, floe"
+                    gloss="a flat mass of ice (smaller than an ice field) floating at sea"> </synset>
+            </synset>
+        </synset>
+    </synset>
+</ImageNetStructure>
