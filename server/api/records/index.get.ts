@@ -1,7 +1,7 @@
 import { sql } from "kysely";
 
 interface TreeNode {
-	id: number;
+	id?: number;
 	name: string;
 	size: number;
 	children: Record<string, TreeNode>;
@@ -11,25 +11,48 @@ interface TreeStructure {
 	[key: string]: TreeNode;
 }
 
-interface TreeNodeOutput {
-	id: number;
+export interface TreeNodeOutput {
+	id?: number;
 	name: string;
 	size: number;
 	children: TreeNodeOutput[];
 }
+
+export type recordType = {
+	id?: number;
+	name: string;
+	size: number;
+};
+
 /**
  *
  * @param records - Array of records to parse into a tree structure.
  * @param records.id - The ID of the record.
  * @param records.name - The name of the record, which may contain a hierarchy represented by ">".
  * @param records.size - The size of the record.
+ * @param skipParents - If true, skips building the tree structure and returns direct mapping of input records.
  * @returns
  */
-const parseRecordsIntoObject = (
-	records: { id: number; name: string; size: number }[],
-) => {
+const parseRecordsIntoObject = (records: recordType[], skipParents = false) => {
+	// If skipParents is true, return a direct transformation of records
+	// TODO: This could be done in a more elegant way, but it's not a priority right now.
+	// TODO: Add types for the records and the return value.
+	if (skipParents) {
+		return records.map((record) => {
+			// Extract the last part of the name (after the last >)
+			const parts = record.name.split(">").map((s) => s.trim());
+			const name = parts[parts.length - 1];
+
+			return {
+				id: record.id,
+				name: name,
+				size: record.size,
+				children: [], // Empty children array for direct records
+			};
+		});
+	}
+
 	/**
-	 *
 	 * The tree structure is built like this:
 	 *
 	 * "ImageNet 2011 Fall Release": {
@@ -89,18 +112,26 @@ const parseRecordsIntoObject = (
 
 	return convert(tree);
 };
+
 // Function that queries direct children given a parent's name.
 const getDirectChildren = async (parentName: string) => {
+	console.log("Getting direct children of:", parentName);
+
+	// Find any records where parentName appears followed by exactly one more segment
+	// The pattern we're looking for is: anything > parentName > childName
 	return await useDb
 		.selectFrom("record")
 		.select(["id", "name", "size"])
-		// Only include records whose name starts with the parent's name followed by " > ".
-		.where("name", "like", `${parentName} > %`)
-		// Compare delimiter counts to ensure we only get direct children
+		.where("name", "like", `%${parentName} > %`)
 		.where(
-			sql`length("name") - length(replace("name", '>', ''))`,
+			// Make sure there's exactly one more segment after parentName
+			// This counts how many '>' appear after parentName in the name string
+			sql`(
+                length(substr("name", position(${` ${parentName} > `} in "name") + length(${` ${parentName} > `}))) -
+                length(replace(substr("name", position(${` ${parentName} > `} in "name") + length(${` ${parentName} > `})), '>', ''))
+            )`,
 			"=",
-			sql`length(${parentName}) - length(replace(${parentName}, '>', '')) + 1`,
+			0,
 		)
 		.execute();
 };
@@ -156,6 +187,9 @@ export default defineEventHandler(async (event) => {
 		} else {
 			// Get direct children of the parent node
 			recordsToReturn = await getDirectChildren(nameToLookup);
+
+			// Use skipParents=true to return direct children without parent nodes
+			return parseRecordsIntoObject(recordsToReturn, true);
 		}
 	}
 

@@ -11,10 +11,11 @@ export default defineConfig({
 	resolve: {
 		alias: {
 			"@": resolve(__dirname, "./client/src"),
+			// "@/components/ui": resolve(__dirname, "./src/client/components/ui")
 		},
 	},
 	build: {
-		outDir: "../public",
+		outDir: "./public",
 		emptyOutDir: true,
 	},
 	root: resolve(__dirname, "./client"),
