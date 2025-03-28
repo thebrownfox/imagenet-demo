@@ -1,7 +1,7 @@
 import { sql } from "kysely";
 
 interface TreeNode {
-	id?: number;
+	id: string;
 	name: string;
 	size: number;
 	children: Record<string, TreeNode>;
@@ -12,7 +12,7 @@ interface TreeStructure {
 }
 
 export interface TreeNodeOutput {
-	id?: number;
+	id: string;
 	name: string;
 	size: number;
 	children: TreeNodeOutput[];
@@ -24,16 +24,23 @@ export type recordType = {
 	size: number;
 };
 
+const getParentSizes = async (parentPaths: string[]) => {
+	return await useDb
+		.selectFrom("record")
+		.select(["name", "size"])
+		.where("name", "in", Array.from(parentPaths))
+		.execute();
+};
 /**
  *
  * @param records - Array of records to parse into a tree structure.
- * @param records.id - The ID of the record.
- * @param records.name - The name of the record, which may contain a hierarchy represented by ">".
- * @param records.size - The size of the record.
  * @param skipParents - If true, skips building the tree structure and returns direct mapping of input records.
  * @returns
  */
-const parseRecordsIntoObject = (records: recordType[], skipParents = false) => {
+const parseRecordsIntoObject = async (
+	records: recordType[],
+	skipParents = false,
+) => {
 	// If skipParents is true, return a direct transformation of records
 	// TODO: This could be done in a more elegant way, but it's not a priority right now.
 	// TODO: Add types for the records and the return value.
@@ -44,7 +51,7 @@ const parseRecordsIntoObject = (records: recordType[], skipParents = false) => {
 			const name = parts[parts.length - 1];
 
 			return {
-				id: record.id,
+				id: record.name,
 				name: name,
 				size: record.size,
 				children: [], // Empty children array for direct records
@@ -70,33 +77,80 @@ const parseRecordsIntoObject = (records: recordType[], skipParents = false) => {
 	 *   }
 	 */
 	const tree: TreeStructure = {}; // Using an object as the root for easier lookup
+	const parentPaths: Set<string> = new Set(); // Track unique parent paths needing size info
+	const recordMap: Map<string, recordType> = new Map(); // Track all records in our input data
+
+	// NOTE: For tree structures with many nodes and lookups, the Map gives much better performance (than .some()) as the number of records increases.
+	//       The more lookups you perform, the more the Map approach pays off.
+
+	// Create a map of all record names for quick lookups
+	for (const record of records) {
+		recordMap.set(record.name, record);
+	}
 
 	// NOTE: This adds even the parents that are not in the records. This is because we want to show the whole tree, not just the leaves.
-	// TODO: Fix IDs and sizes of the parents.
 	for (const record of records) {
 		const recordNodes = record.name.split(">").map((s) => s.trim());
 
 		let current: TreeStructure = tree;
+		let currentPath = "";
 
 		for (const [index, recordNode] of recordNodes.entries()) {
+			// Build the full path for this node level
+			currentPath =
+				index === 0 ? recordNode : `${currentPath} > ${recordNode}`;
+
 			// If this category is not yet a child of the current node, add it.
 			if (!current[recordNode]) {
 				// Initialize the node with an empty children object.
 				current[recordNode] = {
-					id: 0,
+					id: currentPath,
 					name: recordNode,
 					size: 0,
 					children: {},
 				};
+
+				// Only add to parentPaths if:
+				// 1. It's not a leaf node (not the last in the path)
+				// 2. It's not already in our record set (artificially created)
+				if (
+					index < recordNodes.length - 1 &&
+					!recordMap.has(currentPath)
+				) {
+					parentPaths.add(currentPath);
+				}
 			}
 
 			// If we're at the last category, set the size.
 			if (index === recordNodes.length - 1) {
 				current[recordNode].size = record.size;
-				current[recordNode].id = record.id;
+				current[recordNode].id = record.name;
 			}
 			// Move to the child node.
 			current = current[recordNode].children;
+		}
+	}
+
+	// Fetch sizes for parent nodes that aren't in our original records
+	if (parentPaths.size > 0) {
+		const parentSizes = await getParentSizes(Array.from(parentPaths));
+
+		// Update the tree with the parent sizes
+		for (const parent of parentSizes) {
+			const path = parent.name.split(">").map((s) => s.trim());
+			let currentNode = tree;
+
+			// Navigate to the node that needs updating
+			for (const segment of path) {
+				if (currentNode[segment]) {
+					if (currentNode[segment].id === parent.name) {
+						currentNode[segment].size = parent.size;
+					}
+					currentNode = currentNode[segment].children;
+				} else {
+					break;
+				}
+			}
 		}
 	}
 
@@ -139,11 +193,10 @@ const getDirectChildren = async (parentName: string) => {
 export default defineEventHandler(async (event) => {
 	const query = getQuery(event);
 	const parentName = query.parentName ? String(query.parentName) : null;
-	const parentId = query.parentId ? Number(query.parentId) : null;
 	const searchTerm = query.search ? String(query.search).trim() : null;
 
-	let nameToLookup = parentName;
 	let recordsToReturn = [];
+	let skipParents = false;
 
 	// TODO: Consider refactoring this, as it's a bit messy.
 	// If a search term is provided, we don't need to check for parentName or parentId.
@@ -153,45 +206,24 @@ export default defineEventHandler(async (event) => {
 			.select(["id", "name", "size"])
 			.where("name", "like", `%${searchTerm}%`)
 			.execute();
+	} else if (!parentName) {
+		// If no parentName is provided, return root-level nodes.
+		// For instance, you might define root-level records as those with no delimiter.
+		recordsToReturn = await useDb
+			.selectFrom("record")
+			.select(["id", "name", "size"])
+			.where(
+				sql`length("name") - length(replace("name", '>', ''))`,
+				"=",
+				0,
+			)
+			.execute();
 	} else {
-		// NOTE: We support ID because it's shorter and cleaner in the URL. But it might be broken as sometimes the ID is 0.
-		if (parentId) {
-			// If parentId is provided, get the record with that ID and use its name.
-			const parent = await useDb
-				.selectFrom("record")
-				.select(["name"])
-				.where("id", "=", parentId)
-				.executeTakeFirst();
-			// We might not want to throw an error here, but rather return an empty array.
-			if (!parent) {
-				throw createError({
-					statusCode: 404,
-					statusMessage: "Parent record not found",
-				});
-			}
-			nameToLookup = parent.name;
-		}
-
-		if (!nameToLookup) {
-			// If no parentName is provided, return root-level nodes.
-			// For instance, you might define root-level records as those with no delimiter.
-			recordsToReturn = await useDb
-				.selectFrom("record")
-				.select(["id", "name", "size"])
-				.where(
-					sql`length("name") - length(replace("name", '>', ''))`,
-					"=",
-					0,
-				)
-				.execute();
-		} else {
-			// Get direct children of the parent node
-			recordsToReturn = await getDirectChildren(nameToLookup);
-
-			// Use skipParents=true to return direct children without parent nodes
-			return parseRecordsIntoObject(recordsToReturn, true);
-		}
+		// Get direct children of the parent node
+		recordsToReturn = await getDirectChildren(parentName);
+		skipParents = true; // We want to skip parents in this case
 	}
 
-	return parseRecordsIntoObject(recordsToReturn);
+	// Use skipParents=true to return direct children without parent nodes
+	return await parseRecordsIntoObject(recordsToReturn, skipParents);
 });
