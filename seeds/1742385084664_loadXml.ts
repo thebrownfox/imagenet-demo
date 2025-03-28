@@ -2,7 +2,7 @@ import type { Kysely } from "kysely";
 import { readFile } from "node:fs/promises";
 import { XMLParser } from "fast-xml-parser";
 
-import type { DB } from "~~/generated/db";
+import type { DB } from "../generated/db";
 
 const xmlData = await readFile("./seeds/structure_released.xml", "utf-8");
 // const xmlData = await readFile("./seeds/small.xml", "utf-8");
