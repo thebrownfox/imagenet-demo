@@ -18,7 +18,7 @@ const transformApiData = (nodes: TreeNodeOutput[]): TreeViewNode[] => {
 	return nodes.map((node) => ({
 		...node,
 		// NOTE: Use name as ID for tree view component and we assume that the name is unique for each node
-		treeId: node.name,
+		treeId: node.id,
 		// NOTE: We append size to name here as the tree view component doesn't have slot
 		name: `${node.name} (${node.size})`,
 		expanded: false,
