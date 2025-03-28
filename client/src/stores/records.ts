@@ -31,11 +31,13 @@ const transformApiData = (nodes: TreeNodeOutput[]): TreeViewNode[] => {
 export const recordStore = deepMap<{
 	data: TreeViewNode[];
 	originalData: TreeViewNode[]; // Store original data for returning from search
-	isSearching: boolean;
+	isSearchResult: boolean; // Indicates if current data is search results
+	isLoading: boolean; // Indicates loading state
 }>({
 	data: [],
 	originalData: [],
-	isSearching: false,
+	isSearchResult: false,
+	isLoading: false,
 });
 
 // Function to load data from API and update stores
@@ -54,7 +56,8 @@ export const loadRecords = async () => {
 			recordStore.set({
 				data: transformedData,
 				originalData: transformedData, // Keep a copy of original data
-				isSearching: false,
+				isSearchResult: false,
+				isLoading: false,
 			});
 			console.log("Root records loaded successfully");
 		}
@@ -72,12 +75,19 @@ export const searchRecords = async (query: string) => {
 			recordStore.set({
 				data: originalData,
 				originalData,
-				isSearching: false,
+				isSearchResult: false,
+				isLoading: false,
 			});
 			return;
 		}
 
 		console.log(`Searching records with query: ${query}`);
+
+		// Set loading state before search
+		recordStore.set({
+			...recordStore.get(),
+			isLoading: true,
+		});
 
 		// Fetch search results from API
 		const searchResults = await recordsApi.fetch<TreeNodeOutput[]>(
@@ -95,7 +105,8 @@ export const searchRecords = async (query: string) => {
 		recordStore.set({
 			data: transformedResults,
 			originalData,
-			isSearching: true,
+			isSearchResult: true,
+			isLoading: false,
 		});
 
 		console.log(
@@ -108,7 +119,8 @@ export const searchRecords = async (query: string) => {
 		recordStore.set({
 			data: originalData,
 			originalData,
-			isSearching: false,
+			isSearchResult: false,
+			isLoading: false,
 		});
 	}
 };
@@ -119,7 +131,8 @@ export const clearSearch = () => {
 	recordStore.set({
 		data: originalData,
 		originalData,
-		isSearching: false,
+		isSearchResult: false,
+		isLoading: false,
 	});
 };
 
@@ -155,7 +168,7 @@ export const loadNodeChildren = async (nodeName: string) => {
 // Helper function to update a node's loading state
 const updateNodeLoadingState = (nodeName: string, loading: boolean) => {
 	const currentState = recordStore.get();
-	const { data: currentData, originalData, isSearching } = currentState;
+	const { data: currentData, originalData, isSearchResult } = currentState;
 
 	// Helper to recursively find and update the node
 	const updateNode = (nodes: TreeViewNode[]): TreeViewNode[] => {
@@ -174,18 +187,20 @@ const updateNodeLoadingState = (nodeName: string, loading: boolean) => {
 	const updatedData = updateNode(currentData);
 
 	// If we're not in search mode, also update originalData
-	if (!isSearching) {
+	if (!isSearchResult) {
 		recordStore.set({
 			data: updatedData,
 			originalData: updateNode(originalData), // Apply the same update to originalData
-			isSearching,
+			isSearchResult,
+			isLoading: false,
 		});
 	} else {
 		// If we're in search mode, only update the displayed data
 		recordStore.set({
 			data: updatedData,
 			originalData, // Keep originalData unchanged
-			isSearching,
+			isSearchResult,
+			isLoading: false,
 		});
 	}
 };
@@ -193,7 +208,7 @@ const updateNodeLoadingState = (nodeName: string, loading: boolean) => {
 // Helper function to update a node with its loaded children
 const updateNodeWithChildren = (nodeName: string, children: TreeViewNode[]) => {
 	const currentState = recordStore.get();
-	const { data: currentData, originalData, isSearching } = currentState;
+	const { data: currentData, originalData, isSearchResult } = currentState;
 
 	// Helper to recursively find and update the node
 	const updateNode = (nodes: TreeViewNode[]): TreeViewNode[] => {
@@ -217,19 +232,21 @@ const updateNodeWithChildren = (nodeName: string, children: TreeViewNode[]) => {
 	console.log("updated data:", updatedData);
 
 	// If we're not in search mode, also update originalData and categoriesStore
-	if (!isSearching) {
+	if (!isSearchResult) {
 		const updatedOriginalData = updateNode(originalData);
 		recordStore.set({
 			data: updatedData,
 			originalData: updatedOriginalData,
-			isSearching,
+			isSearchResult,
+			isLoading: false,
 		});
 	} else {
 		// If we're in search mode, only update the displayed data
 		recordStore.set({
 			data: updatedData,
 			originalData, // Keep originalData unchanged
-			isSearching,
+			isSearchResult,
+			isLoading: false,
 		});
 		// Don't update categoriesStore in search mode
 	}
@@ -237,7 +254,9 @@ const updateNodeWithChildren = (nodeName: string, children: TreeViewNode[]) => {
 
 // Function to handle node expansion
 export const toggleNodeExpanded = async (nodeName: string) => {
-	const currentData = recordStore.get().data;
+	const currentState = recordStore.get();
+	const currentData = currentState.data;
+	const { originalData } = currentState;
 
 	// Helper to find a specific node by name
 	const findNode = (nodes: TreeViewNode[]): TreeViewNode | null => {
@@ -274,8 +293,9 @@ export const toggleNodeExpanded = async (nodeName: string) => {
 			const updatedData = updateExpanded(currentData);
 			recordStore.set({
 				data: updatedData,
-				originalData: [],
-				isSearching: false,
+				originalData, // Keep the original data instead of setting to empty array
+				isSearchResult: false,
+				isLoading: false,
 			});
 		}
 	}

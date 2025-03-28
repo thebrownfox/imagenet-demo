@@ -7,8 +7,7 @@ import { recordStore, toggleNodeExpanded } from "../stores/records";
 import { RefreshCw } from "lucide-react";
 
 const Home: React.FC = () => {
-	const { data: records } = useStore(recordStore);
-	const isLoading = records.length === 0;
+	const { data: records, isLoading } = useStore(recordStore);
 
 	// Transform records to use name as id for TreeView component
 	const transformedRecords = useMemo(() => {
